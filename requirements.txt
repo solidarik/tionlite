@@ -1,0 +1,2 @@
+python-dotenv==1.0.1
+tion-btle==3.3.6
