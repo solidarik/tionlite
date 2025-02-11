@@ -20,22 +20,12 @@ class TionApi:
     async def switch_off(self):
         await self.set({"state": "off"})
 
-    async def morning_change(self, *, fanspeed: int):
+    async def change_params(self, *, fan_speed: int, heater_temp: int = 12):
         await self.device.set(
             {
                 "state": "on",
-                "fan_speed": fanspeed,
-                # 'heater_temp': 21,
-                "heater": "off",
-            }
-        )
-
-    async def evening_change(self, *, fanspeed: int):
-        await self.device.set(
-            {
-                "state": "on",
-                "fan_speed": fanspeed,
-                "heater_temp": 25,
+                "fan_speed": fan_speed,
+                "heater_temp": heater_temp,
                 "heater": "on",
             }
         )
