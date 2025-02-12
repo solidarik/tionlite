@@ -23,8 +23,8 @@ def repeat_n_times(n: int):
                     return result  # Return the result if successful
                 except Exception as e:
                     print(f"Attempt {attempt} failed with error: {e}")
-                    if attempt == n - 1:
-                        raise
+                    # if attempt == n - 1:
+                    #     raise
             raise RuntimeError("All attempts failed")  #
 
         return wrapper
