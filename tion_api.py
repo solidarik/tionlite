@@ -45,15 +45,15 @@ class TionApi:
         await self.device.pair()
         print("Successful")
 
-    @repeat_n_times(3)
+    @repeat_n_times(10)
     async def switch_on(self):
         await self.device.set({"state": "on"})
 
-    @repeat_n_times(3)
+    @repeat_n_times(10)
     async def switch_off(self):
         await self.set({"state": "off"})
 
-    @repeat_n_times(3)
+    @repeat_n_times(10)
     async def change_params(self, *, fan_speed: int, heater_temp: int = 12):
         await self.device.set(
             {
