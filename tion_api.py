@@ -16,12 +16,16 @@ def repeat_n_times(n: int):
     ) -> Callable[..., Awaitable[T]]:
         @wraps(async_func)
         async def wrapper(*args, **kwargs) -> T:
-            results = []
-            for i in range(n):
-                result = await async_func(*args, **kwargs)
-                results.append(result)
-                print(f"Call {i + 1} result: {result}")
-            return results[-1]
+            for attempt in range(n):
+                try:
+                    result = await async_func(*args, **kwargs)
+                    print(f"Attempt {attempt} succeeded with result: {result}")
+                    return result  # Return the result if successful
+                except Exception as e:
+                    print(f"Attempt {attempt} failed with error: {e}")
+                    if attempt == n - 1:
+                        raise
+            raise RuntimeError("All attempts failed")  #
 
         return wrapper
 
@@ -41,9 +45,11 @@ class TionApi:
         await self.device.pair()
         print("Successful")
 
+    @repeat_n_times(3)
     async def switch_on(self):
         await self.device.set({"state": "on"})
 
+    @repeat_n_times(3)
     async def switch_off(self):
         await self.set({"state": "off"})
 
