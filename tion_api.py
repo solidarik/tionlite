@@ -51,7 +51,7 @@ class TionApi:
 
     @repeat_n_times(10)
     async def switch_off(self):
-        await self.set({"state": "off"})
+        await self.device.set({"state": "off"})
 
     @repeat_n_times(10)
     async def change_params(self, *, fan_speed: int, heater_temp: int = 12):
