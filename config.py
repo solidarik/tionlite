@@ -17,3 +17,4 @@ class Config:
     # Данные для почтового ящика
     BEDROOM_DEVICE_ID = os.environ.get("BEDROOM_DEVICE_ID", "")
     KAMILLA_DEVICE_ID = os.environ.get("KAMILLA_DEVICE_ID", "")
+    IS_USE = os.environ.get("IS_USE", "false") not in ["false", "False"]
