@@ -6,4 +6,4 @@ from tion_api import TionApi
 if __name__ == "__main__":
     print("Switching Bedroom Device to morning mode")
     bedroom = TionApi(Config.BEDROOM_DEVICE_ID)
-    asyncio.run(bedroom.change_params(fan_speed=2, heater_temp=12))
+    asyncio.run(bedroom.change_params(fan_speed=2, heater_temp=10))
