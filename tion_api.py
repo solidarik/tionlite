@@ -12,7 +12,7 @@ def repeat_n_times(n: int):
     """
 
     def decorator(
-        async_func: Callable[..., Awaitable[T]]
+        async_func: Callable[..., Awaitable[T]],
     ) -> Callable[..., Awaitable[T]]:
         @wraps(async_func)
         async def wrapper(*args, **kwargs) -> T:
@@ -60,6 +60,6 @@ class TionApi:
                 "state": "on",
                 "fan_speed": fan_speed,
                 "heater_temp": heater_temp,
-                "heater": "on",
+                "heater": "on" if heater_temp > 0 else "off",
             }
         )
