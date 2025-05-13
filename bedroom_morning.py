@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     name = "Bedroom Device"
 
-    if not Config.IS_USE:
+    if not Config.IS_USE_BEDROOM:
         print(f"{name} is disabled now")
         sys.exit(0)
 

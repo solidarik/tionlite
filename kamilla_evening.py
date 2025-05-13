@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     name = "Kamilla Device"
 
-    if not Config.IS_USE:
+    if not Config.IS_USE_KAMILLA:
         print(f"{name} is disabled now")
         sys.exit(0)
 
