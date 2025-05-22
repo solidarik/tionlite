@@ -14,4 +14,4 @@ if __name__ == "__main__":
 
     print(f"Switching {name} to evening mode")
     device = TionApi(Config.KAMILLA_DEVICE_ID)
-    asyncio.run(device.change_params(fan_speed=1, heater_temp=20))
+    asyncio.run(device.change_params(fan_speed=1, heater_temp=12))
