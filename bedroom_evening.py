@@ -14,5 +14,8 @@ if __name__ == "__main__":
 
     print(f"Switching {name} to evening mode")
 
+    fan_speed = Config.FUN_SPEED_EVENING
+    heater_temp = Config.BEDROOM_HEATER_TEMP
+
     bedroom = TionApi(Config.BEDROOM_DEVICE_ID)
-    asyncio.run(bedroom.change_params(fan_speed=1, heater_temp=12))
+    asyncio.run(bedroom.change_params(fan_speed=fan_speed, heater_temp=heater_temp))

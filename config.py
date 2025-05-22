@@ -18,5 +18,11 @@ class Config:
     BEDROOM_DEVICE_ID = os.environ.get("BEDROOM_DEVICE_ID", "")
     KAMILLA_DEVICE_ID = os.environ.get("KAMILLA_DEVICE_ID", "")
 
+    FUN_SPEED_EVENING = os.environ.get("FUN_SPEED_EVENING", 1)
+    FUN_SPEED_MORNING = os.environ.get("FUN_SPEED_MORNING", 2)
+
+    BEDROOM_HEATER_TEMP = os.environ.get("BEDROOM_HEATER_TEMP", 12)
+    KAMILLA_HEATER_TEMP = os.environ.get("KAMILLA_HEATER_TEMP", 12)
+
     IS_USE_BEDROOM = os.environ.get("IS_USE_BEDROOM", "false") not in ["false", "False"]
     IS_USE_KAMILLA = os.environ.get("IS_USE_KAMILLA", "false") not in ["false", "False"]
