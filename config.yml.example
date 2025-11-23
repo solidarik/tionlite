@@ -1,0 +1,18 @@
+BEDROOM:
+  DEVICE_ID: "D8:..."
+  IN_USE: true
+  morning:
+    fan_speed: 2
+    heater_temp: 12
+  evening:
+    fan_speed: 1
+    heater_temp: 12
+KAMILLA:
+  DEVICE_ID: "EC:..."
+  IN_USE: true
+  morning:
+    fan_speed: 2
+    heater_temp: 12
+  evening:
+    fan_speed: 1
+    heater_temp: 12

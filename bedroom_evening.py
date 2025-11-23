@@ -1,21 +1,22 @@
 import asyncio
 import sys
 
-from config import Config
+from config import config
 from tion_api import TionApi
 
 if __name__ == "__main__":
 
     name = "Bedroom Device"
+    bedroom_config = config.get_device('bedroom')
 
-    if not Config.IS_USE_BEDROOM:
+    if not bedroom_config['IN_USE']:
         print(f"{name} is disabled now")
         sys.exit(0)
 
     print(f"Switching {name} to evening mode")
 
-    fan_speed = Config.FUN_SPEED_EVENING
-    heater_temp = Config.BEDROOM_HEATER_TEMP
+    fan_speed = bedroom_config['evening']['fan_speed']
+    heater_temp = bedroom_config['evening']['heater_temp']
 
-    bedroom = TionApi(Config.BEDROOM_DEVICE_ID)
+    bedroom = TionApi(bedroom_config['DEVICE_ID'])
     asyncio.run(bedroom.change_params(fan_speed=fan_speed, heater_temp=heater_temp))

@@ -1,14 +1,15 @@
 import asyncio
 
-from config import Config
+from config import config
 from tion_api import TionApi
 
 async def main():
-    device_ids = [Config.KAMILLA_DEVICE_ID, Config.BEDROOM_DEVICE_ID]
-    for device_id in device_ids:
-        device = TionApi(device_id)
-        await device.switch_on()
+    for device_name in ['kamilla', 'bedroom']:
+        device_config = config.get_device(device_name)
+        if device_config['IN_USE']:
+            device = TionApi(device_config['DEVICE_ID'])
+            await device.switch_on()
 
 if __name__ == "__main__":
-    print("Switch Off Devices")
+    print("Switch On Devices")
     asyncio.run(main())
